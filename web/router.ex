@@ -18,8 +18,10 @@ defmodule FranAppBackend.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", FranAppBackend do
-  #   pipe_through :api
-  # end
+  # API scope
+  scope "/api", FranAppBackend do
+    pipe_through :api
+
+    resources "/attendances", AttendanceController
+  end
 end
