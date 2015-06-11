@@ -4,7 +4,8 @@ defmodule FranAppBackend.Repo.Migrations.CreateAttendance do
   def change do
     create table(:attendances) do
       add :name, :string
-      add :date, :string
+      add :date, :date
+      add :count, :integer
 
       timestamps
     end

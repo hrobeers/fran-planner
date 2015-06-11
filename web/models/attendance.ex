@@ -3,12 +3,13 @@ defmodule FranAppBackend.Attendance do
 
   schema "attendances" do
     field :name, :string
-    field :date, :string
+    field :date, :Ecto.Date
+    field :count, :integer
 
     timestamps
   end
 
-  @required_fields ~w(name date)
+  @required_fields ~w(name date count)
   @optional_fields ~w()
 
   @doc """

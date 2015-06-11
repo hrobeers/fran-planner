@@ -25,3 +25,6 @@ erl_crash.dump
 
 # emacs autosave
 *~
+
+# unkown
+texput.log
