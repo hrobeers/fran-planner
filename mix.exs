@@ -29,7 +29,8 @@ defmodule FranAppBackend.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.13"},
+    [{:plug_cors, "~> 0.7"},
+     {:phoenix, "~> 0.13"},
      {:phoenix_ecto, "~> 0.4"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 1.0"},

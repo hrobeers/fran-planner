@@ -2,11 +2,11 @@ defmodule FranAppBackend.MomentView do
   use FranAppBackend.Web, :view
 
   def render("index.json", %{moments: moments}) do
-    %{data: render_many(moments, "moment.json")}
+    %{moments: render_many(moments, "moment.json")}
   end
 
   def render("show.json", %{moment: moment}) do
-    %{data: render_one(moment, "moment.json")}
+    %{moment: render_one(moment, "moment.json")}
   end
 
   def render("moment.json", %{moment: moment}) do
