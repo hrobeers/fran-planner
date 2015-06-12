@@ -1,16 +1,19 @@
-defmodule FranAppBackend.Attendance do
+defmodule FranAppBackend.Moment do
   use FranAppBackend.Web, :model
 
-  schema "attendances" do
-    belongs_to :moment, Moment
+  schema "moments" do
+    has_many :attendances, Attendance
 
-    field :name, :string
-    field :count, :integer
+    field :date, Ecto.Date
+    field :starttime, Ecto.Time
+    field :endtime, Ecto.Time
+    field :location, :string
+    field :max_count, :integer
 
     timestamps
   end
 
-  @required_fields ~w(moment_id name count)
+  @required_fields ~w(date starttime endtime location max_count)
   @optional_fields ~w()
 
   @doc """

@@ -23,5 +23,6 @@ defmodule FranAppBackend.Router do
     pipe_through :api
 
     resources "/attendances", AttendanceController
+    resources "/moments", MomentController
   end
 end

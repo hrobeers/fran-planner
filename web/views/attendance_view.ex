@@ -13,7 +13,7 @@ defmodule FranAppBackend.AttendanceView do
     %{
         id: attendance.id,
         name: attendance.name,
-        date: attendance.date,
+        moment_id: attendance.moment_id,
         count: attendance.count
      }
   end
