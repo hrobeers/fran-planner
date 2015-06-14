@@ -6,6 +6,15 @@ defmodule FranAppBackend.AttendanceController do
   plug :scrub_params, "attendance" when action in [:create, :update]
   plug :action
 
+  def index(conn, %{"moment_id" => moment_id}) do
+    attendances = Repo.all(
+      from a in FranAppBackend.Attendance,
+      where: a.moment_id == ^moment_id,
+      select: a
+    )
+    render(conn, "index.json", attendances: attendances)
+  end
+
   def index(conn, _params) do
     attendances = Repo.all(Attendance)
     render(conn, "index.json", attendances: attendances)
