@@ -49,4 +49,10 @@ defmodule FranAppBackend.MomentController do
     moment = Repo.delete(moment)
     render(conn, "show.json", moment: moment)
   end
+
+  def options(conn, _params) do
+    conn
+    |> put_status(200)
+    |> text(nil)
+  end
 end

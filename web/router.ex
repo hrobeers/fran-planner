@@ -10,7 +10,7 @@ defmodule FranAppBackend.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug PlugCors, [origins: ["localhost:4200"]]
+    plug PlugCors, [origins: ["*"]]
   end
 
   scope "/", FranAppBackend do
@@ -24,6 +24,9 @@ defmodule FranAppBackend.Router do
     pipe_through :api
 
     resources "/attendances", AttendanceController
+    options "/attendances*anything", AttendanceController, :options
+
     resources "/moments", MomentController
+    options "/moments*anything", MomentController, :options
   end
 end

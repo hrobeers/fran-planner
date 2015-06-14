@@ -58,4 +58,10 @@ defmodule FranAppBackend.AttendanceController do
     attendance = Repo.delete(attendance)
     render(conn, "show.json", attendance: attendance)
   end
+
+  def options(conn, _params) do
+    conn
+    |> put_status(200)
+    |> text(nil)
+  end
 end
