@@ -8,7 +8,7 @@ defmodule FranAppBackend.AttendanceController do
 
   def index(conn, %{"moment_id" => moment_id}) do
     attendances = Repo.all(
-      from a in FranAppBackend.Attendance,
+      from a in Attendance,
       where: a.moment_id == ^moment_id,
       select: a
     )

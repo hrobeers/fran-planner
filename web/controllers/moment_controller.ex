@@ -6,7 +6,18 @@ defmodule FranAppBackend.MomentController do
   plug :scrub_params, "moment" when action in [:create, :update]
   plug :action
 
+  def index(conn,  %{"from_today" => _}) do
+    now = Ecto.Date.local()
+    moments = Repo.all(from m in Moment,
+                       order_by: m.date,
+                       order_by: m.starttime,
+                       where: m.date >= ^now,
+                       select: m)
+    render(conn, "index.json", moments: moments)
+  end
+
   def index(conn, _params) do
+    now = Ecto.Date.local()
     moments = Repo.all(Moment)
     render(conn, "index.json", moments: moments)
   end
