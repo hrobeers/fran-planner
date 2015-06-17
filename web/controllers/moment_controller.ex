@@ -17,7 +17,6 @@ defmodule FranAppBackend.MomentController do
   end
 
   def index(conn, _params) do
-    now = Ecto.Date.local()
     moments = Repo.all(Moment)
     render(conn, "index.json", moments: moments)
   end
