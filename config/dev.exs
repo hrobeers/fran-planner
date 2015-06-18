@@ -10,16 +10,13 @@ config :fran_app_backend, FranAppBackend.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
-  cache_static_lookup: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch"]]
+  cache_static_lookup: false
 
 # Watch static and templates for browser reloading.
 config :fran_app_backend, FranAppBackend.Endpoint,
   live_reload: [
     patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif)$},
-      ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$}
+      ~r{priv/static/.*(html|js|css|png|jpeg|jpg|gif|mustache)$}
     ]
   ]
 
