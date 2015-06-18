@@ -3,7 +3,7 @@ defmodule FranAppBackend.AttendanceTest do
 
   alias FranAppBackend.Attendance
 
-  @valid_attrs %{date: "some content", name: "some content"}
+  @valid_attrs %{moment_id: 3, name: "some name", count: 6}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

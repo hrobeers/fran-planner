@@ -2,7 +2,7 @@ defmodule FranAppBackend.MomentControllerTest do
   use FranAppBackend.ConnCase
 
   alias FranAppBackend.Moment
-  @valid_attrs %{date: %{day: 17, month: 4, year: 2010}, endtime: %{hour: 14, min: 0}, location: "some content", starttime: %{hour: 14, min: 0}}
+  @valid_attrs %{date: %{day: 17, month: 4, year: 2010}, endtime: %{hour: 14, min: 0}, location: "some content", starttime: %{hour: 14, min: 0}, max_count: 10}
   @invalid_attrs %{}
 
   setup do
