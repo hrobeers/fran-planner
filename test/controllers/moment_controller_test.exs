@@ -12,20 +12,26 @@ defmodule FranAppBackend.MomentControllerTest do
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, moment_path(conn, :index)
-    assert json_response(conn, 200)["data"] == []
+    assert json_response(conn, 200)["moments"] == []
   end
 
   test "shows chosen resource", %{conn: conn} do
-    moment = Repo.insert %Moment{}
+    moment = Repo.insert %Moment{date: %Ecto.Date{day: 17, month: 4, year: 2010}, endtime: %Ecto.Time{hour: 15, min: 0, sec: 0}, location: "some location", starttime: %Ecto.Time{hour: 14, min: 0, sec: 0}, max_count: 10}
+
     conn = get conn, moment_path(conn, :show, moment)
-    assert json_response(conn, 200)["data"] == %{
-      "id" => moment.id
+    assert json_response(conn, 200)["moment"] == %{
+      "id" => moment.id,
+      "date" => "2010-04-17",
+      "endtime" => "15:00:00",
+      "location" => "some location",
+      "max_count" => 10,
+      "starttime" => "14:00:00"
     }
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
     conn = post conn, moment_path(conn, :create), moment: @valid_attrs
-    assert json_response(conn, 200)["data"]["id"]
+    assert json_response(conn, 200)["moment"]["id"]
     assert Repo.get_by(Moment, @valid_attrs)
   end
 
@@ -37,7 +43,7 @@ defmodule FranAppBackend.MomentControllerTest do
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     moment = Repo.insert %Moment{}
     conn = put conn, moment_path(conn, :update, moment), moment: @valid_attrs
-    assert json_response(conn, 200)["data"]["id"]
+    assert json_response(conn, 200)["moment"]["id"]
     assert Repo.get_by(Moment, @valid_attrs)
   end
 
@@ -50,7 +56,7 @@ defmodule FranAppBackend.MomentControllerTest do
   test "deletes chosen resource", %{conn: conn} do
     moment = Repo.insert %Moment{}
     conn = delete conn, moment_path(conn, :delete, moment)
-    assert json_response(conn, 200)["data"]["id"]
+    assert json_response(conn, 200)["moment"]["id"]
     refute Repo.get(Moment, moment.id)
   end
 end
