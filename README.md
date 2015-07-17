@@ -3,6 +3,7 @@
 ## Preview
 
 Check out what this application looks like!
+
 http://hrobeers.github.io/fran-planner-html/
 
 ## Running the html demo app:
@@ -19,7 +20,10 @@ http://hrobeers.github.io/fran-planner-html/
 4. Start Phoenix endpoint with `mix phoenix.server`
    Now you can visit `localhost:4000` from your browser.
 5. Add moments using the Json API:
+
    POST to localhost:4000/api/moments
+
+   ```javascript
    {
     "moment":
       {
@@ -30,4 +34,5 @@ http://hrobeers.github.io/fran-planner-html/
         "max_count": 5
       }
    }
+   ```
 6. Give birth!
