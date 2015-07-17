@@ -36,7 +36,7 @@ defmodule FranAppBackend.Mixfile do
      {:phoenix_html, "~> 1.0"},
      {:phoenix_live_reload, "~> 0.4", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:fran_app_html, git: "git@bitbucket.org:hrobeers/fran_app_html.git",
+     {:fran_app_html, git: "https://github.com/hrobeers/fran-planner-html.git",
                       branch: "include",
                       app: false,
                       compile: "cp -r * ../../priv/static/."},
