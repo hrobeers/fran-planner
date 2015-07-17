@@ -1,4 +1,4 @@
-# FranAppBackend
+# Fran Planner
 
 ## Preview
 
