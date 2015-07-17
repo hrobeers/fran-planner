@@ -1,5 +1,8 @@
 # Fran Planner
 
+Baby visit planning app, to avoid an overload of visitors.
+And to know who to call when you need some more rest.
+
 ## Preview
 
 Check out what this application looks like!
