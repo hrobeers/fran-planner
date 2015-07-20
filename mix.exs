@@ -40,6 +40,6 @@ defmodule FranAppBackend.Mixfile do
                       branch: "include",
                       app: false,
                       compile: "cp -r * ../../priv/static/."},
-     {:exrm, "~> 0.15.3"}]
+     {:exrm, "~> 0.17.0"}]
   end
 end
